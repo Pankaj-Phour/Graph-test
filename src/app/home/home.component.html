@@ -1,0 +1,37 @@
+<div class="parent">
+    <div class="top">
+        <form [formGroup]="form">
+            <div class="group revenue">
+                <div class="formGroup" *ngFor="let month of months;let i = index;">
+                    <label for="january">January</label>
+                    <input type="text" placeholder="Enter revenue amount" [formControlName]="month"
+                        (input)="monthValue($event,i)">
+                </div>
+            </div>
+            <div class="group color" [formGroup]="color" #colorDiv>
+                <mat-form-field appearance="fill" *ngFor="let choice of colorsChoice;">
+                    <mat-label>{{choice}}</mat-label>
+                    <mat-select [formControlName]="choice" name="color">
+                        <mat-option *ngFor="let color of colors" [value]="color">
+                            {{color}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="group chart" [formGroup]="type" [ngStyle]="{'height':colorDiv.clientHeight+'px'}">
+                <mat-radio-group formControlName="radio" class="group" style="align-items: flex-start;">
+                    <mat-radio-button class="example-radio-button" *ngFor="let chart of chartTypes;let i=index"
+                        (change)="select($event)" [value]="chart">
+                        {{chart}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </form>
+    </div>
+    <div class="button">
+        <button type="button" (click)="submit()">Submit</button>
+    </div>
+    <div class="bottom">
+        <app-chart [Type]="selectedType" [Revenue]="monthsvalue" [Color]="color.value"></app-chart>
+    </div>
+</div>
