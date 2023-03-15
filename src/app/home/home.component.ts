@@ -16,6 +16,7 @@ months:any =['january','february','march'];
 colors:any =['red','green','purple','yellow','blue','grey','orange'];
 selectedType:any = this.chartTypes[0];
 monthsvalue:any;
+submitted:boolean = false;
   constructor(private _fb:FormBuilder) { }
 
   ngOnInit(): void {
@@ -52,6 +53,10 @@ monthsvalue:any;
   }
   submit(){
     console.log('submitted');
-    
+    this.submitted = true;
+    setTimeout(() => {
+      this.submitted = false;
+      
+    }, 2000);
   }
 }

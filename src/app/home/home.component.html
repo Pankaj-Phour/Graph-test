@@ -32,6 +32,6 @@
         <button type="button" (click)="submit()">Submit</button>
     </div>
     <div class="bottom">
-        <app-chart [Type]="selectedType" [Revenue]="monthsvalue" [Color]="color.value"></app-chart>
+        <app-chart [Type]="selectedType" [Revenue]="form.value" [Color]="color.value" [Submitted]="submitted"></app-chart>
     </div>
 </div>
