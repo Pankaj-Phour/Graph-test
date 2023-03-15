@@ -14,9 +14,9 @@
 }
 form{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    width: 90vw;
 }
 .group{
     max-width: 100%;
@@ -26,7 +26,7 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    // align-items: center;
     row-gap: 15px;
 }
 input{
@@ -35,21 +35,45 @@ input{
     outline: none;
     border: 1px solid gray;
 }
+.heading{
+    font-size: 22px;
+    font-family: 'Roboto';
+    text-align: left;
+}
+.name{
+    text-transform: capitalize;
+}
 .formGroup{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    
+    // justify-content: space-around;
+    row-gap: 6px;
+    position: relative;
 }
-::ng-deep .cdk-overlay-pane{
-    // position: absolute !important;
-    background-color: white;
+.error{
+    position: absolute;
+    top: 100%;
+    left: 3%;
+    color: red;
+    font-size: 14px;
+    font-family: 'Roboto';
 }
 .button{
     max-width: 100vw;
     width: 90%;
     display: flex;
     justify-content: flex-end;
+}
+button{
+    padding: 10px;
+    padding-inline: 15px;
+    font-size: 17px;
+    border: 2px solid gray;
+    background-color: transparent;
+    border-radius: 8px;
+}
+button:hover{
+    cursor: pointer;
 }
 @media only screen and (max-width:599px){
     form{
@@ -62,3 +86,7 @@ input{
         margin-block: 5%;
     }
 }
+    ::ng-deep .cdk-overlay-pane{
+        // position: absolute !important;
+        background-color: white;
+    }
